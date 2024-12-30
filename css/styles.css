@@ -1,43 +1,51 @@
+/* General Body Styling */
 body {
     margin: 60px auto;
     width: 70%;
+    background-color: #0a0a23; /* Dark background for a cybersecurity vibe */
+    color: #f4f4f9; /* Light text for contrast */
+    font-family: 'Helvetica', 'Arial', 'Sans-Serif';
+    line-height: 1.6em;
 }
+
+/* Navigation Styling */
 nav ul, footer ul {
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
     padding: 0px;
     list-style: none;
     font-weight: bold;
+    text-align: center;
+    background-color: #1c1c3b; /* Subtle dark background */
+    border-radius: 5px;
+    padding: 10px;
 }
+
 nav ul li, footer ul li {
     display: inline;
     margin-right: 20px;
 }
-a {
+
+nav ul li a, footer ul li a {
     text-decoration: none;
-    color: #999;
+    color: #00ffcc; /* Neon green for a techy feel */
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
-a:hover {
+
+nav ul li a:hover, footer ul li a:hover {
+    color: #ff007a; /* Bright magenta for hover effect */
     text-decoration: underline;
 }
+
+/* Headings */
 h1 {
     font-size: 3em;
-    font-family:'Helvetica', 'Arial', 'Sans-Serif';
-}
-p {
-    font-size: 1.5em;
-    line-height: 1.4em;
-    color: #333;
-}
-footer {
-    border-top: 1px solid #d5d5d5;
-    font-size: .8em;
+    font-family: 'Courier New', 'Courier', monospace; /* Techy font */
+    text-align: center;
+    color: #00ffcc; /* Neon green */
+    text-shadow: 2px 2px 4px #000; /* Shadow for glow effect */
+    margin-bottom: 20px;
 }
 
-ul.posts { 
-    margin: 20px auto 40px; 
-    font-size: 1.5em;
-}
-
-ul.posts li {
-    list-style: none;
-}
+h2 {
+    font-size: 2em;
+    color:

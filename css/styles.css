@@ -51,16 +51,16 @@ h2 {
     color:
 /* Styling for links */
 a {
-    color: #00ffcc; /* Matches the h1 header color (neon green) */
+    color: #00ffcc !important; /* Matches the h1 header color (neon green) */
     text-decoration: none;
     font-weight: bold;
 }
 
 a:hover {
-    color: #ff007a; /* Bright magenta for hover effect */
-    text-decoration: underline; /* Underline effect on hover */
+    color: #ff007a !important; /* Bright magenta for hover effect */
+    text-decoration: underline;
 }
 
 a:visited {
-    color: #00ffcc; /* Keep visited links the same color as the default */
+    color: #00ffcc !important; /* Keep visited links the same color as default */
 }

@@ -28,6 +28,7 @@ nav ul li a, footer ul li a {
     text-decoration: none;
     color: #00ffcc; /* Neon green for a techy feel */
     font-weight: bold;
+    font-size: 1.3em; /* Larger font size for links */
     transition: color 0.3s ease;
 }
 
@@ -56,6 +57,7 @@ a {
     color: #00ffcc !important; /* Matches the h1 header color (neon green) */
     text-decoration: none;
     font-weight: bold;
+    font-size: 1.3em; /* Increased font size for links */
 }
 
 a:hover {
@@ -69,7 +71,7 @@ a:visited {
 
 /* Paragraphs */
 p {
-    font-size: 1.5em;
+    font-size: 1.2em; /* Slightly smaller font size for paragraphs */
     line-height: 1.4em;
     color: #f4f4f9;
 }

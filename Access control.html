@@ -5,10 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
     <title>Access control</title>
+    <style>
+        table {
+            width: 100%; /* Adjust table to take up full width of its container */
+            border-collapse: collapse; /* Remove extra spacing between cells */
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd; /* Add borders to cells */
+            padding: 8px; /* Add padding inside cells */
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f9; /* Light background for table headers */
+            color: #333; /* Text color for headers */
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Add alternating row colors */
+        }
+        tr:hover {
+            background-color: #e9e9e9; /* Highlight row on hover */
+        }
+    </style>
 </head>
 <body>
     <h1>Access control</h1>
-    <p>Details about my Access control project...</p>
+    <p>Details about my Access control project...
+    </p><h1>Dynamic Table Example</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Project Name</th>
+                <th>Description</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Risk Register</td>
+                <td>Details about managing risks.</td>
+                <td>Completed</td>
+            </tr>
+            <tr>
+                <td>Vulnerability Assessment</td>
+                <td>Identifying and addressing vulnerabilities.</td>
+                <td>In Progress</td>
+            </tr>
+        </tbody>
+    </table>
     <a href="index.html">Back to Portfolio</a>
 </body>
 </html>

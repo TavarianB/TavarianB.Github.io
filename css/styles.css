@@ -49,3 +49,17 @@ h1 {
 h2 {
     font-size: 2em;
     color:
+/* Styling for links */
+a {
+    color: #0056b3; /* Default link color (dark blue) */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #008cff; /* Link color when hovered (bright blue) */
+    text-decoration: underline; /* Underline effect on hover */
+}
+
+a:visited {
+    color: #551a8b; /* Link color after being clicked (purple) */
+}

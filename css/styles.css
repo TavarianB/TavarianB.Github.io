@@ -71,7 +71,7 @@ a:visited {
 
 /* Paragraphs */
 p {
-    font-size: 1.2em; /* Slightly smaller font size for paragraphs */
+    font-size: 0.9em; /* Slightly smaller font size for paragraphs */
     line-height: 1.4em;
     color: #f4f4f9;
 }

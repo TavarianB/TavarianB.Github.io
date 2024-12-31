@@ -8,7 +8,71 @@
 </head>
 <body>
     <h1>Apply filters to SQL queries</h1>
-    <p>Details about my Apply filters to SQL queries project...</p>
+    <p>In my previous roles, I used SQL queries with filters to extract actionable insights for security and administrative tasks. These queries enabled me to investigate login attempts, filter employee data for updates, and identify patterns that posed potential security risks.</p>
+    
+    <h2>Examples of SQL Queries</h2>
+    
+    <h3>1. Retrieve After-Hours Failed Login Attempts</h3>
+    <p>A potential security incident occurred after business hours (post-18:00). Using SQL, I filtered the <code>log_in_attempts</code> table for failed login attempts after 18:00.</p>
+    <pre>
+SELECT *
+FROM log_in_attempts
+WHERE login_time > '18:00'
+  AND success = FALSE;
+    </pre>
+    <p><strong>Outcome:</strong> Identified unauthorized access attempts outside business hours for further investigation.</p>
+    
+    <h3>2. Retrieve Login Attempts on Specific Dates</h3>
+    <p>A suspicious event occurred on 2024-11-09, and I needed to investigate login attempts on 2024-11-09 and the day before.</p>
+    <pre>
+SELECT *
+FROM log_in_attempts
+WHERE login_date = '2024-11-09'
+   OR login_date = '2024-11-08';
+    </pre>
+    <p><strong>Outcome:</strong> Narrowed down login activities to pinpoint unusual patterns on specific dates.</p>
+    
+    <h3>3. Retrieve Login Attempts Outside of Mexico</h3>
+    <p>After analyzing data, I discovered potential anomalies in login attempts originating outside of Mexico.</p>
+    <pre>
+SELECT *
+FROM log_in_attempts
+WHERE country NOT LIKE 'MEX%';
+    </pre>
+    <p><strong>Outcome:</strong> Identified login attempts from countries other than Mexico for further investigation.</p>
+    
+    <h3>4. Retrieve Employees in Marketing (East Building)</h3>
+    <p>My team required a list of employee machines in the Marketing department located in the East building for updates.</p>
+    <pre>
+SELECT *
+FROM employees
+WHERE department = 'Marketing'
+  AND office LIKE 'East%';
+    </pre>
+    <p><strong>Outcome:</strong> Provided an accurate list of employees in the Marketing department for targeted system updates.</p>
+    
+    <h3>5. Retrieve Employees in Finance or Sales</h3>
+    <p>Another task involved identifying employees in the Finance and Sales departments to deploy a specialized security update.</p>
+    <pre>
+SELECT *
+FROM employees
+WHERE department = 'Finance'
+   OR department = 'Sales';
+    </pre>
+    <p><strong>Outcome:</strong> Segregated Finance and Sales employees for specific security patch deployments.</p>
+    
+    <h3>6. Retrieve Employees Not in IT</h3>
+    <p>To perform a separate security update, I filtered employees not part of the Information Technology department.</p>
+    <pre>
+SELECT *
+FROM employees
+WHERE department NOT LIKE 'IT%';
+    </pre>
+    <p><strong>Outcome:</strong> Isolated non-IT employees for targeted actions, reducing unnecessary system downtime.</p>
+    
+    <h2>Summary</h2>
+    <p>I leveraged SQL queries to filter and retrieve specific data related to security incidents, employee information, and system updates. Using filters like <code>AND</code>, <code>OR</code>, and <code>NOT</code>, along with wildcard operators (<code>LIKE</code> and <code>%</code>), I efficiently identified and managed critical datasets across two primary tables: <code>log_in_attempts</code> and <code>employees</code>. This approach allowed me to streamline investigations, enhance data security, and optimize administrative tasks.</p>
+    
     <a href="index.html">Back to Portfolio</a>
 </body>
 </html>

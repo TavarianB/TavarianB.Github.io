@@ -8,7 +8,108 @@
 </head>
 <body>
     <h1>Risk Register</h1>
-    <p>Details about my Risk Register...</p>
+    <p>This Risk Register outlines potential risks to the bank's operational environment and their mitigation strategies. It includes a risk table and matrix to prioritize and manage risks effectively.</p>
+
+    <h2>Operational Environment</h2>
+    <p>The bank is located in a coastal area with low crime rates. There are 100 on-premise employees and 20 remote employees. The customer base consists of 2,000 individual accounts and 200 commercial accounts. The bank has strict financial regulations and must ensure data security and sufficient liquidity, including meeting daily Federal Reserve cash requirements.</p>
+    
+    <h2>Risk Register Table</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Asset</th>
+                <th>Risk Description</th>
+                <th>Likelihood</th>
+                <th>Severity</th>
+                <th>Priority</th>
+                <th>Mitigation Strategies</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Funds</td>
+                <td>Business Email Compromise - An employee is tricked into sharing confidential information through phishing.</td>
+                <td>2</td>
+                <td>2</td>
+                <td>4</td>
+                <td>Implement email security training, deploy anti-phishing filters, enforce multi-factor authentication (MFA) for email.</td>
+            </tr>
+            <tr>
+                <td>Customer Database</td>
+                <td>Compromised User Database - Sensitive customer data is poorly encrypted, leaving it vulnerable to breaches.</td>
+                <td>2</td>
+                <td>3</td>
+                <td>6</td>
+                <td>Encrypt all sensitive data, apply data masking techniques, and enforce strong access control policies.</td>
+            </tr>
+            <tr>
+                <td>Financial Records</td>
+                <td>Financial Records Leak - A database server of financial records is publicly accessible due to misconfiguration.</td>
+                <td>3</td>
+                <td>3</td>
+                <td>9</td>
+                <td>Apply network segmentation, ensure databases are not publicly accessible, and conduct regular security audits.</td>
+            </tr>
+            <tr>
+                <td>Supply Chain</td>
+                <td>Supply Chain Disruption - Natural disasters disrupt delivery of critical components and services.</td>
+                <td>1</td>
+                <td>2</td>
+                <td>2</td>
+                <td>Negotiate backup suppliers, implement disaster recovery planning, and maintain emergency inventory levels.</td>
+            </tr>
+            <tr>
+                <td>Physical Assets</td>
+                <td>Theft - The bank's safe is left unlocked, increasing the risk of theft.</td>
+                <td>1</td>
+                <td>3</td>
+                <td>3</td>
+                <td>Secure the safe with multi-factor authentication and limit access to authorized personnel only.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Risk Matrix</h2>
+    <p><strong>Likelihood/Severity</strong></p>
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Low (1)</th>
+                <th>Moderate (2)</th>
+                <th>High (3)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Low (1)</td>
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>Moderate (2)</td>
+                <td>2</td>
+                <td>4</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>High (3)</td>
+                <td>3</td>
+                <td>6</td>
+                <td>9</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Notes</h2>
+    <ul>
+        <li><strong>Financial Records Leak:</strong> Given the severity of a public exposure of financial data, this risk is prioritized higher. The bank faces potential regulatory fines and loss of customer trust if this occurs. The mitigation strategy focuses on securing database servers, encrypting backup data, and performing regular security assessments.</li>
+        <li><strong>Business Email Compromise:</strong> This is a moderate risk due to the commonality of phishing attacks. With proper employee training, phishing simulation campaigns, and strong email security measures, the likelihood of this risk can be mitigated effectively.</li>
+        <li><strong>Theft:</strong> Despite being a lower likelihood risk due to the area’s low crime rate, this risk still has a high severity if it were to occur. The bank has a plan to address it with physical security measures and controls.</li>
+        <li><strong>Supply Chain Disruption:</strong> This is a moderate risk for the bank, and although it is less likely, disruptions can still impact operations. Mitigation strategies include preparing for emergencies with backup suppliers and maintaining sufficient stock of essential materials.</li>
+    </ul>
+    
     <a href="index.html">Back to Portfolio</a>
 </body>
 </html>

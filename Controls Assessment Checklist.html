@@ -8,8 +8,120 @@
 </head>
 <body>
     <h1>Controls Assessment Checklist</h1>
-    <p>Details about my Controls Assessment Checklist project...</p>
+    <p>This project involved assessing the organization's security controls and compliance with industry standards, including PCI DSS, GDPR, and SOC Type 2. Through a structured checklist, gaps were identified in areas like least privilege, encryption, disaster recovery, and password policies. Actionable recommendations were provided to mitigate risks, improve data protection, and enhance the organization’s alignment with regulatory requirements. The project underscores the importance of continuous auditing and implementing best practices to maintain a robust security posture.</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Control</th>
+                <th>Explanation</th>
+                <th>Yes/No</th>
+                <th>Notes/Issues</th>
+                <th>Recommendations</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Least Privilege</td>
+                <td>This location had a lack of role-based access controls; every employee had access to all files on the network.</td>
+                <td>No</td>
+                <td>All employees had access to sensitive files, violating the principle of least privilege.</td>
+                <td>Implement role-based access control (RBAC) and restrict access to files based on job functions.</td>
+            </tr>
+            <tr>
+                <td>Disaster Recovery Plans</td>
+                <td>No documented disaster recovery plans were in place for critical data or systems.</td>
+                <td>No</td>
+                <td>Systems could not recover from disasters or breaches, risking business continuity.</td>
+                <td>Create and implement a disaster recovery plan, including backups and off-site storage.</td>
+            </tr>
+            <tr>
+                <td>Password Policies</td>
+                <td>Weak password requirements were in place; many employees used easily guessable passwords.</td>
+                <td>No</td>
+                <td>Passwords lacked complexity and weren’t aligned with best practices.</td>
+                <td>Enforce strong password policies with minimum complexity requirements. Introduce multi-factor authentication (MFA).</td>
+            </tr>
+            <tr>
+                <td>Separation of Duties</td>
+                <td>There was no formal separation of duties, resulting in potential fraud risks and unauthorized access.</td>
+                <td>No</td>
+                <td>Employees had unrestricted access to critical systems, increasing the risk of internal threats.</td>
+                <td>Implement separation of duties by limiting access to sensitive systems and functions based on job roles.</td>
+            </tr>
+            <tr>
+                <td>Firewall</td>
+                <td>A firewall was in place, but configurations were inconsistent across network segments.</td>
+                <td>Yes</td>
+                <td>The firewall existed, but misconfigurations were a concern.</td>
+                <td>Regularly audit firewall rules and ensure proper segmentation of networks.</td>
+            </tr>
+            <tr>
+                <td>Intrusion Detection System (IDS)</td>
+                <td>An IDS was not implemented, leaving the network vulnerable to threats and attacks.</td>
+                <td>No</td>
+                <td>The network was not monitored for intrusions, making it difficult to detect breaches.</td>
+                <td>Deploy an IDS to detect suspicious activities and monitor network traffic for potential threats.</td>
+            </tr>
+            <tr>
+                <td>Backups</td>
+                <td>No formal backup procedures were established for critical systems.</td>
+                <td>No</td>
+                <td>Data backups were either insufficient or non-existent, jeopardizing data integrity.</td>
+                <td>Implement a regular backup schedule and ensure backups are encrypted and stored off-site.</td>
+            </tr>
+            <tr>
+                <td>Antivirus Software</td>
+                <td>Antivirus software was installed but not consistently monitored.</td>
+                <td>Yes</td>
+                <td>Antivirus software was deployed but lacked active monitoring and regular updates.</td>
+                <td>Regularly update and monitor antivirus software to ensure it detects the latest threats.</td>
+            </tr>
+            <tr>
+                <td>Manual Monitoring and Maintenance for Legacy Systems</td>
+                <td>Legacy systems existed but had minimal monitoring and maintenance.</td>
+                <td>No</td>
+                <td>Legacy systems were at risk of falling into disrepair and potentially being exploited.</td>
+                <td>Establish a routine for monitoring and maintaining legacy systems and ensure policies for intervention are clear.</td>
+            </tr>
+            <tr>
+                <td>Encryption</td>
+                <td>Sensitive data was not encrypted at rest or in transit.</td>
+                <td>No</td>
+                <td>Confidential information was vulnerable to unauthorized access.</td>
+                <td>Encrypt sensitive data both at rest and in transit to protect confidentiality.</td>
+            </tr>
+            <tr>
+                <td>Password Management System</td>
+                <td>No centralized password management system was in place.</td>
+                <td>No</td>
+                <td>Passwords were managed poorly, leading to increased risk of data breaches.</td>
+                <td>Implement a password management solution to securely store and manage passwords.</td>
+            </tr>
+            <tr>
+                <td>Locks (Offices, Storefront, Warehouse)</td>
+                <td>Physical security measures, including locks, were sufficient.</td>
+                <td>Yes</td>
+                <td>Physical locations had appropriate locks and access controls.</td>
+                <td>Continue to maintain physical security protocols for offices and storage areas.</td>
+            </tr>
+            <tr>
+                <td>CCTV Surveillance</td>
+                <td>CCTV was installed but not always monitored or maintained.</td>
+                <td>Yes</td>
+                <td>CCTV coverage was adequate but lacked regular monitoring and updates.</td>
+                <td>Ensure CCTV systems are actively monitored and maintained for real-time security.</td>
+            </tr>
+            <tr>
+                <td>Fire Detection/Prevention</td>
+                <td>A fire detection system was in place, but not tested regularly.</td>
+                <td>Yes</td>
+                <td>Fire safety systems existed but were not regularly checked for functionality.</td>
+                <td>Conduct regular fire safety drills and inspections to ensure all systems are operational.</td>
+            </tr>
+        </tbody>
+    </table>
+    
     <a href="index.html">Back to Portfolio</a>
 </body>
 </html>
-

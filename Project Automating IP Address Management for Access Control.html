@@ -4,11 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <title>Project Automating IP Address Management for Access Control</title>
+    <title>Project: Automating IP Address Management for Access Control</title>
 </head>
 <body>
-    <h1>Project Automating IP Address Management for Access Control</h1>
-    <p>Details about my Project Automating IP Address Management for Access Control...</p>
+    <h1>Project: Automating IP Address Management for Access Control</h1>
+    <p>Details about my project where I automated IP address management to improve access control and security.</p>
+    
+    <h2>Objective</h2>
+    <p>Create an algorithm to automate the management of an IP allow list by removing specific IP addresses that are no longer authorized.</p>
+    
+    <h3>Tools & Technologies Used</h3>
+    <ul>
+        <li>Python (File Handling, List Manipulation)</li>
+    </ul>
+    
+    <h3>Problem Statement</h3>
+    <p>
+        At my organization, access to restricted content was managed using an allow list of IP addresses. Over time, some IP addresses needed to be removed. The manual process was cumbersome and prone to errors, so I developed an automated Python algorithm to efficiently update the <code>allow_list.txt</code> file and ensure that unauthorized IP addresses were removed.
+    </p>
+    
+    <h3>Steps Taken</h3>
+    <ol>
+        <li>
+            <strong>Open the file for reading:</strong>
+            <p>I used the <code>open()</code> function along with the <code>with</code> statement to read the current contents of the <code>allow_list.txt</code> file. This ensured that the file was properly opened and closed during the operation.</p>
+            <pre>
+import_file = "allow_list.txt"
+with open(import_file, "r") as file:
+    ip_addresses = file.read()
+            </pre>
+        </li>
+        <li>
+            <strong>Convert file contents to a list:</strong>
+            <p>I used the <code>.split()</code> method to convert the contents of the file, a string of IP addresses, into a list format for easier manipulation.</p>
+            <pre>
+ip_addresses = ip_addresses.split()
+            </pre>
+        </li>
+        <li>
+            <strong>Iterate through the remove list:</strong>
+            <p>The core part of the algorithm was iterating through a <code>remove_list</code> to identify IP addresses that should no longer have access. I used a <code>for</code> loop to check if each IP address from the <code>remove_list</code> was present in the <code>ip_addresses</code> list.</p>
+            <pre>
+for element in remove_list:
+    if element in ip_addresses:
+        ip_addresses.remove(element)
+            </pre>
+        </li>
+        <li>
+            <strong>Update the file with the revised list:</strong>
+            <p>After removing the specified IP addresses, I needed to update the <code>allow_list.txt</code> file. I converted the updated list back to a string format using the <code>.join()</code> method, which inserted a newline character between each IP address.</p>
+            <pre>
+ip_addresses = "\n".join(ip_addresses)
+with open(import_file, "w") as file:
+    file.write(ip_addresses)
+            </pre>
+        </li>
+    </ol>
+    
+    <h3>Outcome</h3>
+    <ul>
+        <li>The algorithm successfully removed the specified IP addresses from the <code>allow_list.txt</code> file, automating a previously manual and error-prone task.</li>
+        <li>This solution improved the efficiency of managing access control and minimized the risk of human error in maintaining the allow list.</li>
+    </ul>
+    
+    <h3>Skills Demonstrated</h3>
+    <ul>
+        <li>Proficiency in Python programming, especially in file I/O, list manipulation, and string operations.</li>
+        <li>Understanding of automation in system administration tasks to streamline processes.</li>
+    </ul>
+    
+    <h3>Key Takeaways</h3>
+    <ul>
+        <li>Learned the importance of automating routine administrative tasks, which saves time and ensures accuracy.</li>
+        <li>Gained hands-on experience in working with file handling, list manipulation, and error checking in Python.</li>
+    </ul>
+    
     <a href="index.html">Back to Portfolio</a>
 </body>
 </html>

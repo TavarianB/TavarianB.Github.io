@@ -94,7 +94,7 @@ th {
     color: #333; /* Text color for headers */
 }
 
-tr:nth-child(even) {
+/* tr:nth-child(even) {
     background-color: #f9f9f9; /* Add alternating row colors */
 }
 

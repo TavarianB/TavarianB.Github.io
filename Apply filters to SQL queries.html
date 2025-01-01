@@ -32,14 +32,14 @@ WHERE login_date = '2024-11-09'
     </pre>
     <p><strong>Outcome:</strong> Narrowed down login activities to pinpoint unusual patterns on specific dates.</p>
     
-    <h3>3. Retrieve Login Attempts Outside of Mexico</h3>
-    <p>After analyzing data, I discovered potential anomalies in login attempts originating outside of Mexico.</p>
+    <h3>3. Retrieve Login Attempts Outside of United States</h3>
+    <p>After analyzing data, I discovered potential anomalies in login attempts originating outside of United States</p>
     <pre>
 SELECT *
 FROM log_in_attempts
-WHERE country NOT LIKE 'MEX%';
+WHERE country NOT LIKE 'United States%';
     </pre>
-    <p><strong>Outcome:</strong> Identified login attempts from countries other than Mexico for further investigation.</p>
+    <p><strong>Outcome:</strong> Identified login attempts from countries other than United States for further investigation.</p>
     
     <h3>4. Retrieve Employees in Marketing (East Building)</h3>
     <p>My team required a list of employee machines in the Marketing department located in the East building for updates.</p>

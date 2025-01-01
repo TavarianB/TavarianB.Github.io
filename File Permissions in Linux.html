@@ -8,9 +8,56 @@
 </head>
 <body>
     <h1>File Permissions in Linux</h1>
-    <p>Details about my File Permissions in Linux project...</p>
+    <p>In my previous roles, I worked extensively with Linux systems to ensure proper access control and security of files and directories. I used Linux commands to analyze, modify, and enforce file permissions to align with organizational security policies.</p>
+    
+    <h2>Examples of Linux Commands</h2>
+    <ol>
+        <li>
+            <strong>Check File and Directory Permissions</strong>
+            <p>To analyze permissions for files and directories in the projects folder, I used the <code>ls -la</code> command to view a detailed list of their permissions. This helped identify misconfigured access rights.</p>
+            <ul>
+                <li><strong>Command Example:</strong> <code>ls -la</code></li>
+                <li><strong>Outcome:</strong> Identified that <code>project_k.txt</code> had write access for "other," which was against organizational policies.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Remove Write Permissions for "Other"</strong>
+            <p>Upon identifying that <code>project_k.txt</code> allowed write access for "other," I used the <code>chmod</code> command to remove these permissions and verified the changes with <code>ls -la</code>.</p>
+            <ul>
+                <li><strong>Command Example:</strong></li>
+                <ul>
+                    <li><code>chmod o-w project_k.txt</code></li>
+                    <li><code>ls -la</code></li>
+                </ul>
+                <li><strong>Outcome:</strong> Ensured that only the user and group could modify the file, restricting "other" to read-only access.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Modify Permissions on a Hidden File</strong>
+            <p>For the archived file <code>.project_x.txt</code>, I adjusted permissions so that no one had write access, while the user and group retained read access.</p>
+            <ul>
+                <li><strong>Command Example:</strong></li>
+                <ul>
+                    <li><code>chmod u-w .project_x.txt</code></li>
+                    <li><code>chmod g-w .project_x.txt</code></li>
+                    <li><code>chmod g+r .project_x.txt</code></li>
+                </ul>
+                <li><strong>Outcome:</strong> Secured the hidden file by removing all write access, ensuring data integrity.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Restrict Access to a Directory</strong>
+            <p>To secure the <code>drafts</code> directory and its contents, I restricted execute permissions for "group" and "other," ensuring only the <code>researcher2</code> user could access it.</p>
+            <ul>
+                <li><strong>Command Example:</strong> <code>chmod go-x drafts</code></li>
+                <li><strong>Outcome:</strong> Restricted access to the directory, ensuring only authorized users could interact with its contents.</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <h2>Summary</h2>
+    <p>Using Linux commands like <code>ls -la</code> and <code>chmod</code>, I enforced access control policies and ensured the security of sensitive data within the projects directory. These commands allowed me to effectively identify and rectify permission issues, ensuring compliance with organizational security standards.</p>
+    
     <a href="index.html">Back to Portfolio</a>
 </body>
 </html>
-
-

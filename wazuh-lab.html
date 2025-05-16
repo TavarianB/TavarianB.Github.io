@@ -5,6 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Wazuh SSH Brute-Force Detection Lab</title>
   <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Lightbox2 CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+
+  <style>
+    /* Thumbnail image styles for lightbox */
+    .image-gallery img {
+      max-width: 100%;
+      height: auto;
+      cursor: pointer;
+      border-radius: 6px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      transition: transform 0.2s ease;
+    }
+
+    .image-gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .image-gallery figure {
+      margin-bottom: 1.5em;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -25,88 +48,95 @@
     <h2> Key Detection Details</h2>
     <ul>
       <li><strong>Technique Used: T1110.001 – Brute Force: Password Guessing</strong></li>
-  <p>This MITRE ATT&CK technique refers to the use of repeated login attempts with different passwords to gain unauthorized access. It’s a common initial access tactic, especially over exposed services like SSH.</p>
+      <p>This MITRE ATT&CK technique refers to the use of repeated login attempts with different passwords to gain unauthorized access. It’s a common initial access tactic, especially over exposed services like SSH.</p>
 
-  <li><strong>Tactic: Initial Access</strong></li>
-  <p>This tactic is part of the broader ATT&CK framework, describing how attackers attempt to gain a foothold in the environment. In this lab, brute-force attacks were the primary method observed.</p>
+      <li><strong>Tactic: Initial Access</strong></li>
+      <p>This tactic is part of the broader ATT&CK framework, describing how attackers attempt to gain a foothold in the environment. In this lab, brute-force attacks were the primary method observed.</p>
 
-  <li><strong>Primary Indicator: Multiple failed SSH login attempts from foreign IPs</strong></li>
-  <p>Wazuh flagged several hundred failed login attempts targeting the SSH port (22), originating from IP addresses geolocated to China, Russia, and the U.S. This indicated automated attack behavior consistent with password guessing scripts.</p>
+      <li><strong>Primary Indicator: Multiple failed SSH login attempts from foreign IPs</strong></li>
+      <p>Wazuh flagged several hundred failed login attempts targeting the SSH port (22), originating from IP addresses geolocated to China, Russia, and the U.S. This indicated automated attack behavior consistent with password guessing scripts.</p>
 
-  <li><strong>Rule IDs Triggered: 5715 and subrules</strong></li>
-  <p>These rules represent excessive authentication failures and are built into Wazuh’s default detection policy. Their frequent activation confirmed sustained brute-force attempts.</p>
-</ul>
+      <li><strong>Rule IDs Triggered: 5715 and subrules</strong></li>
+      <p>These rules represent excessive authentication failures and are built into Wazuh’s default detection policy. Their frequent activation confirmed sustained brute-force attempts.</p>
+    </ul>
     
     <h2>📈 Visualizations</h2>
-  <li><strong>Visualization & Patterns</strong></li>
-  <p>The Wazuh Dashboard helped surface visual insights including geographic clustering of source IPs and time-based spikes in activity. This made it easier to correlate repetitive attack behaviors and pinpoint high-activity periods.</p>
-<div class="image-gallery">
-  <figure>
-    <img src="css/Alerts summary.png" alt="Alerts Summary">
-    <figcaption>Alerts Summary overview captured from Wazuh dashboard.</figcaption>
-  </figure>
+    <li><strong>Visualization & Patterns</strong></li>
+    <p>The Wazuh Dashboard helped surface visual insights including geographic clustering of source IPs and time-based spikes in activity. This made it easier to correlate repetitive attack behaviors and pinpoint high-activity periods.</p>
+    <div class="image-gallery">
+      <figure>
+        <a href="css/Alerts summary.png" data-lightbox="wazuh-lab" data-title="Alerts Summary overview captured from Wazuh dashboard.">
+          <img src="css/Alerts summary.png" alt="Alerts Summary">
+        </a>
+        <figcaption>Alerts Summary overview captured from Wazuh dashboard.</figcaption>
+      </figure>
 
-  <figure>
-    <img src="css/Attacks by technique.png" alt="Attacks by Technique">
-    <figcaption>Bar graph showing attacks by MITRE ATT&CK techniques.</figcaption>
-  </figure>
+      <figure>
+        <a href="css/Attacks by technique.png" data-lightbox="wazuh-lab" data-title="Bar graph showing attacks by MITRE ATT&CK techniques.">
+          <img src="css/Attacks by technique.png" alt="Attacks by Technique">
+        </a>
+        <figcaption>Bar graph showing attacks by MITRE ATT&CK techniques.</figcaption>
+      </figure>
 
-  <figure>
-    <img src="css/IPs.png" alt="A smell Section of Source IP Addresses">
-    <figcaption>Excerpt from the Google Sheets document tracking attack source IP addresses.</figcaption>
-  </figure>
+      <figure>
+        <a href="css/IPs.png" data-lightbox="wazuh-lab" data-title="Excerpt from the Google Sheets document tracking attack source IP addresses.">
+          <img src="css/IPs.png" alt="A small Section of Source IP Addresses">
+        </a>
+        <figcaption>Excerpt from the Google Sheets document tracking attack source IP addresses.</figcaption>
+      </figure>
 
-  <figure>
-    <img src="css/Inbound SSH Attack Activity Log .png" alt="Timeline of the inbound SSH Attacks">
-    <figcaption>Timeline visualization of inbound SSH brute-force attacks.</figcaption>
-  </figure>
-</div>
+      <figure>
+        <a href="css/Inbound SSH Attack Activity Log .png" data-lightbox="wazuh-lab" data-title="Timeline visualization of inbound SSH brute-force attacks.">
+          <img src="css/Inbound SSH Attack Activity Log .png" alt="Timeline of the inbound SSH Attacks">
+        </a>
+        <figcaption>Timeline visualization of inbound SSH brute-force attacks.</figcaption>
+      </figure>
+    </div>
 
     <h2> Defensive Measures Implemented</h2>
     <ul>
       <li><strong>SSH Hardening</strong></li>
-  <p>To limit SSH access, I configured the SSH daemon (<code>sshd_config</code>) to allow only a specific user. This significantly reduced the attack surface and ensured that only the designated user account could initiate a connection. Restarting the SSH service applied the change immediately without disrupting other services.</p>
+      <p>To limit SSH access, I configured the SSH daemon (<code>sshd_config</code>) to allow only a specific user. This significantly reduced the attack surface and ensured that only the designated user account could initiate a connection. Restarting the SSH service applied the change immediately without disrupting other services.</p>
 
-  <li><strong>Firewall Rules (UFW)</strong></li>
-  <p>I used Ubuntu’s built-in Uncomplicated Firewall (UFW) to allow SSH access from only a single trusted IP address while blocking all other SSH traffic. This prevented further brute-force attempts from unknown sources while still maintaining administrative access.</p>
+      <li><strong>Firewall Rules (UFW)</strong></li>
+      <p>I used Ubuntu’s built-in Uncomplicated Firewall (UFW) to allow SSH access from only a single trusted IP address while blocking all other SSH traffic. This prevented further brute-force attempts from unknown sources while still maintaining administrative access.</p>
 
-  <li><strong>Fail2Ban Setup</strong></li>
-  <p>To automate the blocking of repeated login failures, I installed and enabled Fail2Ban. It monitored SSH logs and dynamically banned IPs after a specified number of failed attempts. This acted as a secondary layer of defense and reduced the volume of repeated intrusion attempts.</p>
-
+      <li><strong>Fail2Ban Setup</strong></li>
+      <p>To automate the blocking of repeated login failures, I installed and enabled Fail2Ban. It monitored SSH logs and dynamically banned IPs after a specified number of failed attempts. This acted as a secondary layer of defense and reduced the volume of repeated intrusion attempts.</p>
     </ul>
 
     <h2> Results</h2>
     <ul>
       <li><strong>Brute-force attack volume decreased significantly</strong></li>
-  <p>After implementing layered defenses, the number of brute-force alerts dropped. Attackers were unable to connect due to access restrictions and were blocked automatically by Fail2Ban.</p>
+      <p>After implementing layered defenses, the number of brute-force alerts dropped. Attackers were unable to connect due to access restrictions and were blocked automatically by Fail2Ban.</p>
 
-  <li><strong>Wazuh continued monitoring with improved accuracy</strong></li>
-  <p>The alerts became more focused, as the noise from random scanning IPs was filtered out. This made it easier to identify any anomalies or targeted attacks that slipped through.</p>
+      <li><strong>Wazuh continued monitoring with improved accuracy</strong></li>
+      <p>The alerts became more focused, as the noise from random scanning IPs was filtered out. This made it easier to identify any anomalies or targeted attacks that slipped through.</p>
 
-  <li><strong>Changes persisted through reboots</strong></li>
-  <p>All configurations — SSH restrictions, firewall rules, and Fail2Ban — were tested by rebooting the VM. They remained active, confirming successful hardening of the system.</p>
+      <li><strong>Changes persisted through reboots</strong></li>
+      <p>All configurations — SSH restrictions, firewall rules, and Fail2Ban — were tested by rebooting the VM. They remained active, confirming successful hardening of the system.</p>
 
-  <li><strong>Dashboard uptime maintained</strong></li>
-  <p>Despite ongoing monitoring and traffic, the Wazuh Dashboard stayed responsive and functional, validating that performance wasn’t impacted by security changes.</p>
-</ul>
+      <li><strong>Dashboard uptime maintained</strong></li>
+      <p>Despite ongoing monitoring and traffic, the Wazuh Dashboard stayed responsive and functional, validating that performance wasn’t impacted by security changes.</p>
+    </ul>
 
     <h2> Key Takeaways</h2>
     <ul>
       <li><strong>Monitoring Matters</strong></li>
-  <p>Having a real-time view of security events provided insight into how attackers behave, especially when scanning open ports. It reinforced the value of centralized log management.</p>
+      <p>Having a real-time view of security events provided insight into how attackers behave, especially when scanning open ports. It reinforced the value of centralized log management.</p>
 
-  <li><strong>Initial Configuration is Critical</strong></li>
-  <p>The quality and scope of alerts depended on how Wazuh was set up. Fine-tuning the rules and ensuring agent-dash-OpenSearch communication worked seamlessly was essential for success.</p>
+      <li><strong>Initial Configuration is Critical</strong></li>
+      <p>The quality and scope of alerts depended on how Wazuh was set up. Fine-tuning the rules and ensuring agent-dash-OpenSearch communication worked seamlessly was essential for success.</p>
 
-  <li><strong>Defense-in-Depth is a Must</strong></li>
-  <p>Using multiple layers of protection, such as SSH hardening, UFW, and Fail2Ban, made the environment much more resilient. Each layer added a barrier that an attacker would need to overcome.</p>
+      <li><strong>Defense-in-Depth is a Must</strong></li>
+      <p>Using multiple layers of protection, such as SSH hardening, UFW, and Fail2Ban, made the environment much more resilient. Each layer added a barrier that an attacker would need to overcome.</p>
 
-  <li><strong>Troubleshooting Skills Were Strengthened</strong></li>
-  <p>When the dashboard temporarily went offline, I had to analyze logs, verify services, and check for blocked ports. This gave me hands-on experience in diagnosing issues quickly in a security toolchain.</p>
+      <li><strong>Troubleshooting Skills Were Strengthened</strong></li>
+      <p>When the dashboard temporarily went offline, I had to analyze logs, verify services, and check for blocked ports. This gave me hands-on experience in diagnosing issues quickly in a security toolchain.</p>
 
-  <li><strong>Context is Everything</strong></li>
-  <p>Mapping events to MITRE ATT&CK gave purpose and clarity to each alert. It helped prioritize what needed immediate attention and educated me on attacker tactics.</p>
-</ul>
+      <li><strong>Context is Everything</strong></li>
+      <p>Mapping events to MITRE ATT&CK gave purpose and clarity to each alert. It helped prioritize what needed immediate attention and educated me on attacker tactics.</p>
+    </ul>
 
     <h2> Project Artifacts</h2>
     <ul>
@@ -116,5 +146,8 @@
 
     <p> This project strengthened my skills in security monitoring, Linux hardening, and detection engineering. It also reflects my proactive learning in building a virtual SOC lab using Wazuh as a free and open-source SIEM solution.</p>
   </div>
+
+  <!-- Lightbox2 JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 </body>
 </html>

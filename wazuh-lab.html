@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Wazuh SSH Brute-Force Detection Lab</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1, h2 {
+      color: #0a4d8c;
+    }
+    ul {
+      line-height: 1.6;
+    }
+    code {
+      background: #eee;
+      padding: 2px 5px;
+      border-radius: 4px;
+    }
+    a {
+      color: #0a4d8c;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Wazuh SSH Brute-Force Detection Lab</h1>
+    <p><strong>Date:</strong> May 15, 2025</p>
+
+    <h2> Objective</h2>
+    <p>Simulate and analyze SSH brute-force attacks on a cloud-hosted Linux server using Wazuh for threat detection, log analysis, and response in a Level 1 SOC environment.</p>
+
+    <h2> Environment</h2>
+    <ul>
+      <li>Ubuntu VM hosted in Microsoft Azure</li>
+      <li>Wazuh Manager + Agent</li>
+      <li>OpenSearch Dashboard (Kibana-style interface)</li>
+      <li>Firewall configuration and Fail2Ban</li>
+    </ul>
+
+    <h2> Analysis Summary</h2>
+    <ul>
+      <li><strong>Technique:</strong> T1110.001 – Brute Force: Password Guessing</li>
+      <li><strong>Tactic:</strong> Initial Access</li>
+      <li><strong>Rule IDs Triggered:</strong> 5715 (SSH authentication failures)</li>
+      <li><strong>Source IPs:</strong> Primarily from China, Russia, and the U.S. (obfuscated for privacy)</li>
+    </ul>
+
+    <h2> Defensive Measures</h2>
+    <ul>
+      <li>Modified <code>/etc/ssh/sshd_config</code> to include <code>AllowUsers (My username) </code></li>
+      <li>Restarted SSH service to apply changes</li>
+      <li>Restricted SSH access via UFW firewall rules</li>
+      <li>Deployed Fail2Ban to monitor and block repeated SSH failures</li>
+    </ul>
+
+    <h2> Results</h2>
+    <ul>
+      <li>Brute-force attempts significantly reduced post-hardening</li>
+      <li>Wazuh continued to alert on failed attempts and block malicious IPs</li>
+      <li>Custom logging maintained using Google Sheets</li>
+    </ul>
+
+    <h2> Key Takeaways</h2>
+    <ul>
+      <li>Real-time log analysis helps identify early-stage attacks</li>
+      <li>Wazuh is a powerful, open-source SIEM for SOC operations</li>
+      <li>Firewall and user restrictions are effective for SSH hardening</li>
+      <li>Mapped incidents to MITRE ATT&CK framework for better context</li>
+    </ul>
+
+    <h2> Project Artifacts</h2>
+    <ul>
+      <li><a href="https://docs.google.com/spreadsheets/d/your-sheet-link" target="_blank">Inbound SSH Attack Activity Log (Google Sheets)</a></li>
+      <li><a href="images/ssh-attack-timeline.png" target="_blank">Timeline of Alerts (Image)</a></li>
+    </ul>
+
+    <p> This project strengthened my skills in security monitoring, Linux hardening, and detection engineering. It also reflects my proactive learning in building a virtual SOC lab using Wazuh as a free and open-source SIEM solution.</p>
+  </div>
+</body>
+</html>

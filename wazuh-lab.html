@@ -35,10 +35,32 @@
 
   <li><strong>Rule IDs Triggered: 5715 and subrules</strong></li>
   <p>These rules represent excessive authentication failures and are built into Wazuh’s default detection policy. Their frequent activation confirmed sustained brute-force attempts.</p>
-
+</ul>
+    
+    <h2>📈 Visualizations</h2>
   <li><strong>Visualization & Patterns</strong></li>
   <p>The Wazuh Dashboard helped surface visual insights including geographic clustering of source IPs and time-based spikes in activity. This made it easier to correlate repetitive attack behaviors and pinpoint high-activity periods.</p>
-</ul>
+<div class="image-gallery">
+  <figure>
+    <img src="css/Alerts summary.png" alt="Alerts Summary">
+    <figcaption>Alerts Summary overview captured from Wazuh dashboard.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="css/Attacks by technique.png" alt="Attacks by Technique">
+    <figcaption>Bar graph showing attacks by MITRE ATT&CK techniques.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="css/IPs.png" alt="A smell Section of Source IP Addresses">
+    <figcaption>Excerpt from the Google Sheets document tracking attack source IP addresses.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="css/Inbound SSH Attack Activity Log .png" alt="Timeline of the inbound SSH Attacks">
+    <figcaption>Timeline visualization of inbound SSH brute-force attacks.</figcaption>
+  </figure>
+</div>
 
     <h2> Defensive Measures Implemented</h2>
     <ul>

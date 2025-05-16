@@ -30,12 +30,17 @@
       <li><strong>Source IPs:</strong> Primarily from China, Russia, and the U.S. (obfuscated for privacy)</li>
     </ul>
 
-    <h2> Defensive Measures</h2>
+    <h2> Defensive Measures Implemented</h2>
     <ul>
-      <li>Modified <code>/etc/ssh/sshd_config</code> to include <code>AllowUsers (My username) </code></li>
-      <li>Restarted SSH service to apply changes</li>
-      <li>Restricted SSH access via UFW firewall rules</li>
-      <li>Deployed Fail2Ban to monitor and block repeated SSH failures</li>
+      <li><strong>SSH Hardening</strong></li>
+  <p>To limit SSH access, I configured the SSH daemon (<code>sshd_config</code>) to allow only a specific user. This significantly reduced the attack surface and ensured that only the designated user account could initiate a connection. Restarting the SSH service applied the change immediately without disrupting other services.</p>
+
+  <li><strong>Firewall Rules (UFW)</strong></li>
+  <p>I used Ubuntu’s built-in Uncomplicated Firewall (UFW) to allow SSH access from only a single trusted IP address while blocking all other SSH traffic. This prevented further brute-force attempts from unknown sources while still maintaining administrative access.</p>
+
+  <li><strong>Fail2Ban Setup</strong></li>
+  <p>To automate the blocking of repeated login failures, I installed and enabled Fail2Ban. It monitored SSH logs and dynamically banned IPs after a specified number of failed attempts. This acted as a secondary layer of defense and reduced the volume of repeated intrusion attempts.</p>
+
     </ul>
 
     <h2> Results</h2>

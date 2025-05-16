@@ -22,13 +22,23 @@
       <li>Firewall configuration and Fail2Ban</li>
     </ul>
 
-    <h2> Analysis Summary</h2>
+    <h2> Key Detection Details</h2>
     <ul>
-      <li><strong>Technique:</strong> T1110.001 – Brute Force: Password Guessing</li>
-      <li><strong>Tactic:</strong> Initial Access</li>
-      <li><strong>Rule IDs Triggered:</strong> 5715 (SSH authentication failures)</li>
-      <li><strong>Source IPs:</strong> Primarily from China, Russia, and the U.S. (obfuscated for privacy)</li>
-    </ul>
+      <li><strong>Technique Used: T1110.001 – Brute Force: Password Guessing</strong></li>
+  <p>This MITRE ATT&CK technique refers to the use of repeated login attempts with different passwords to gain unauthorized access. It’s a common initial access tactic, especially over exposed services like SSH.</p>
+
+  <li><strong>Tactic: Initial Access</strong></li>
+  <p>This tactic is part of the broader ATT&CK framework, describing how attackers attempt to gain a foothold in the environment. In this lab, brute-force attacks were the primary method observed.</p>
+
+  <li><strong>Primary Indicator: Multiple failed SSH login attempts from foreign IPs</strong></li>
+  <p>Wazuh flagged several hundred failed login attempts targeting the SSH port (22), originating from IP addresses geolocated to China, Russia, and the U.S. This indicated automated attack behavior consistent with password guessing scripts.</p>
+
+  <li><strong>Rule IDs Triggered: 5715 and subrules</strong></li>
+  <p>These rules represent excessive authentication failures and are built into Wazuh’s default detection policy. Their frequent activation confirmed sustained brute-force attempts.</p>
+
+  <li><strong>Visualization & Patterns</strong></li>
+  <p>The Wazuh Dashboard helped surface visual insights including geographic clustering of source IPs and time-based spikes in activity. This made it easier to correlate repetitive attack behaviors and pinpoint high-activity periods.</p>
+</ul>
 
     <h2> Defensive Measures Implemented</h2>
     <ul>
@@ -45,18 +55,36 @@
 
     <h2> Results</h2>
     <ul>
-      <li>Brute-force attempts significantly reduced post-hardening</li>
-      <li>Wazuh continued to alert on failed attempts and block malicious IPs</li>
-      <li>Custom logging maintained using Google Sheets</li>
-    </ul>
+      <li><strong>Brute-force attack volume decreased significantly</strong></li>
+  <p>After implementing layered defenses, the number of brute-force alerts dropped. Attackers were unable to connect due to access restrictions and were blocked automatically by Fail2Ban.</p>
+
+  <li><strong>Wazuh continued monitoring with improved accuracy</strong></li>
+  <p>The alerts became more focused, as the noise from random scanning IPs was filtered out. This made it easier to identify any anomalies or targeted attacks that slipped through.</p>
+
+  <li><strong>Changes persisted through reboots</strong></li>
+  <p>All configurations — SSH restrictions, firewall rules, and Fail2Ban — were tested by rebooting the VM. They remained active, confirming successful hardening of the system.</p>
+
+  <li><strong>Dashboard uptime maintained</strong></li>
+  <p>Despite ongoing monitoring and traffic, the Wazuh Dashboard stayed responsive and functional, validating that performance wasn’t impacted by security changes.</p>
+</ul>
 
     <h2> Key Takeaways</h2>
     <ul>
-      <li>Real-time log analysis helps identify early-stage attacks</li>
-      <li>Wazuh is a powerful, open-source SIEM for SOC operations</li>
-      <li>Firewall and user restrictions are effective for SSH hardening</li>
-      <li>Mapped incidents to MITRE ATT&CK framework for better context</li>
-    </ul>
+      <li><strong>Monitoring Matters</strong></li>
+  <p>Having a real-time view of security events provided insight into how attackers behave, especially when scanning open ports. It reinforced the value of centralized log management.</p>
+
+  <li><strong>Initial Configuration is Critical</strong></li>
+  <p>The quality and scope of alerts depended on how Wazuh was set up. Fine-tuning the rules and ensuring agent-dash-OpenSearch communication worked seamlessly was essential for success.</p>
+
+  <li><strong>Defense-in-Depth is a Must</strong></li>
+  <p>Using multiple layers of protection, such as SSH hardening, UFW, and Fail2Ban, made the environment much more resilient. Each layer added a barrier that an attacker would need to overcome.</p>
+
+  <li><strong>Troubleshooting Skills Were Strengthened</strong></li>
+  <p>When the dashboard temporarily went offline, I had to analyze logs, verify services, and check for blocked ports. This gave me hands-on experience in diagnosing issues quickly in a security toolchain.</p>
+
+  <li><strong>Context is Everything</strong></li>
+  <p>Mapping events to MITRE ATT&CK gave purpose and clarity to each alert. It helped prioritize what needed immediate attention and educated me on attacker tactics.</p>
+</ul>
 
     <h2> Project Artifacts</h2>
     <ul>
